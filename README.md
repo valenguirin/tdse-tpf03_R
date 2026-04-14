@@ -44,7 +44,7 @@
 ##  Índice General
 - [Resumen](#resumen)
 - [1 Lógica de Control (FSM)](#1-lógica-de-control-fsm)
-   - [1.1 FSM del sistema (Sistema Global](#11-fsm-del-sistema-global-sistema-global)
+   - [1.1 FSM del sistema (Sistema Global)](#11-fsm-del-sistema-global-sistema-global)
    - [1.2 FSM del botón de pánico](#12-fsm-del-botón-de-pánico)
    - [1.3 FSM del sensor LDR](#13-fsm-del-sensor-ldr)
    - [1.4 FSM del dispositivo GSM (sim800l)](#14-fsm-del-dispositivo-gsm)
