@@ -77,7 +77,7 @@ Gestiona el paso entre alarma activa, mandar alertas y administración de la whi
 Lógica de antirrebotes físicos del botón de activación de la alarma.
 
 <p align="center">
-  <img src="./img/sensor_panic_button.png" alt="FSM BLE">
+  <img src="./img/sensor_panic_button.png" alt="FSM PB">
 </p>
 
 
@@ -87,7 +87,7 @@ Lógica de antirrebotes físicos del botón de activación de la alarma.
 Lógica de validación de la luz ambiental para determinar si es necesario activar la luz estroboscópica.
 
 <p align="center">
-  <img src="./img/sensor_ldr.png" alt="FSM BLE">
+  <img src="./img/sensor_ldr.png" alt="FSM LDR">
 </p>
 
 
@@ -102,7 +102,7 @@ Controla la inicialización del módulo, el registro en la red y la gestión de 
 Gestiona los usuarios que pueden editar la whitelist.
 
 <p align="center">
-  <img src="./img/ble.png" alt="FSM GSM">
+  <img src="./img/ble.png" alt="FSM BLE">
 </p>
 
 
@@ -110,13 +110,13 @@ Gestiona los usuarios que pueden editar la whitelist.
 Caracteriza una sirena sonora, se activa ya sea de día o de noche
 
 <p align="center">
-  <img src="./img/actuator_led_blue.png" alt="FSM GSM">
+  <img src="./img/actuator_led_blue.png" alt="FSM BLED">
 </p>
 
 ### 1.7 FSM del LED blanco
 Caracteriza una luz estroboscópica, se activa solo de noche.
 <p align="center">
-  <img src="./img/actuator_led_white.png" alt="FSM GSM">
+  <img src="./img/actuator_led_white.png" alt="FSM WLED">
 </p>
 
 
@@ -125,7 +125,7 @@ Caracteriza una luz estroboscópica, se activa solo de noche.
 Es un LED que da información de que la alarma está activada y puede ser accionada en cualquier momento.
 
 <p align="center">
-  <img src="./img/actuator_led_red.png" alt="FSM GSM">
+  <img src="./img/actuator_led_red.png" alt="FSM RLED">
 </p>
 
 
@@ -134,7 +134,7 @@ Es un LED que da información de que la alarma está activada y puede ser accion
 Es un led que se queda prendido siempre que el gsm esté conectado a la red y entonces puede recibir llamadas y mandar las alertas por mensaje de texto a la policía.
 
 <p align="center">
-  <img src="./img/actuator_led_red.png" alt="FSM GSM">
+  <img src="./img/actuator_led_red.png" alt="FSM YLED">
 </p>
 
 ##  2 Diseño del Firmware
@@ -143,23 +143,23 @@ Los diagramas de secuencia ilustran la interacción temporal entre los módulos:
 
 * **Interacción entre los sensores y el sistema:** 
 <p align="center">
-  <img src="./img/sensor_to_system.png" alt="FSM GSM">
+  <img src="./img/sensor_to_system.png" alt="SENSTOSYS">
 </p>
 
 * **Interacción desde el módulo GSM hacia el sistema:** 
 <p align="center">
-  <img src="./img/gsm_to_system.png" alt="FSM GSM">
+  <img src="./img/gsm_to_system.png" alt="GSMTOSYS">
 </p>
 
 * **Interacción desde el sistema hacia el módulo GSM:** <p align="center">
-  <img src="./img/system_to_gsm.png" alt="FSM GSM">
+  <img src="./img/system_to_gsm.png" alt="SYSTOGSM">
 </p>
 
 * **Interacción desde el módulo BLE hacia el sistema:** 
 <p align="center">
-  <img src="./img/BLE_to_SYS.png" alt="FSM BLE">
+  <img src="./img/BLE_to_SYS.png" alt="BLETOSYS">
 </p>
 
 * **Interacción desde el sistema hacia el módulo BLE:** <p align="center">
-  <img src="./img/SYS_to_BLE.png" alt="FSM BLE">
+  <img src="./img/SYS_to_BLE.png" alt="SYSTOBLE">
 </p>
