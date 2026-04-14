@@ -60,7 +60,7 @@
 ---
 
 ##  Resumen
-En el presente trabajo se diseñó e implementó una alarma vecinal para solucionar la problemática de inseguridad en barrios de la Ciudad de Buenos Aires. Mediante una llamada desde su teléfono móvil, teléfono fijo, asi como presionando un botón de pánico, los usuarios pueden activar alertas sonoras y lumínicas. El sistema permite el mantenimiento vía BLE con doble factor de autenticación y gestión de whitelist; los cambios realizados se guardan en una memoria EEPROM externa.
+En el presente trabajo se diseñó e implementó una alarma vecinal para solucionar la problemática de inseguridad en barrios de la Ciudad de Buenos Aires. Mediante una llamada desde su teléfono móvil, teléfono fijo, así como presionando un botón de pánico, los usuarios pueden activar alertas sonoras y lumínicas. El sistema permite el mantenimiento vía BLE con doble factor de autenticación y gestión de whitelist; los cambios realizados se guardan en una memoria EEPROM externa.
 
 ## 1 Lógica de Control (FSM)
 Aquí se detallan las máquinas de estados finitos que gobiernan el comportamiento del sistema.
