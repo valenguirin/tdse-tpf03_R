@@ -14,7 +14,7 @@
   <strong>86.65/TA134 Taller de Sistemas Embebidos</strong>
 </p>
 
-# Memoria del Trabajo Final: Alarma Vecinal 
+# Statecharts y diagramas de secuencia: Alarma Vecinal 
 
 <table align="center">
   <tr>
