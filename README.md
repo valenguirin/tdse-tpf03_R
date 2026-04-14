@@ -280,7 +280,7 @@ El funcionamiento de este módulo consta de conectarse a la red 2G para actuar c
 Se tiene en cuenta que la red 2G está siendo apagada lentamente pero en ese caso se podrá implementar esta alarma usando el módulo SIM800L que se observa en la Figura 2.6 . Aunque, mientras eso no ocurra, por costo y utilidad esta opción es la mejor.
 
 <p align="center">
-  <img src="./img/gsm.png" alt="modulo_gsm" width="350">
+  <img src="./img/modulo_gsm.png" alt="modulo_gsm" width="350">
 </p>
 
 <p align="center">
