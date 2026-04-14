@@ -28,8 +28,8 @@ En la Tabla 1.2 se muestra el estado de avance de cada requisito propuesto en la
 ||1.2|En caso de acceso permitido, el sistema guardará qué usuario root ingresó|🟢|
 |Indicadores|2.1|El sistema contará con un indicador luminoso (luz estroboscópica) para indicar que hay una alerta.|🟢|
 ||2.2|El sistema contará con un buzzer (sirena) para indicar la activación de la alarma.|🟢|
-||2.3|El sistema contará con un set de LEDs para indicar que la clave es correcta.|🟢|
-||2.4|El sistema contará con un set de LEDs para indicar que la clave es incorrecta.|🟢|
+||2.3|El sistema contará con un set de LEDs para indicar que la clave es correcta.|🔴|
+||2.4|El sistema contará con un set de LEDs para indicar que la clave es incorrecta.|🔴|
 ||2.5|El sistema enviará un mensaje a la policía, a todos los usuarios y a la central mediante GSM para indicar qué usuario activó la alarma mediante llamada.|🟢|
 ||2.6|El sistema enviará un mensaje a la policía, a todos los usuarios y a la central mediante GSM para indicar que la alarma se activó mediante botón de pánico.|🟢|
 ||2.7|El sistema contará con un LED para indicar el estado de la alarma (armada o desarmada).|🟢|
