@@ -42,19 +42,19 @@
 ---
 
 ##  Índice General
-- [Resumen ](#resumen)
-- [1 Lógica de Control (FSM)](#lógica-de-control-fsm)
-   - [1.1 FSM del sistema (Sistema Global](#fsm-del-sistema-global-sistema-global)
-   - [1.2 FSM del botón de pánico](#fsm-del-botón-de-pánico)
-   - [1.3 FSM del sensor LDR](#fsm-del-sensor-ldr)
-   - [1.4 FSM del dispositivo GSM (sim800l)](#fsm-del-dispositivo-gsm)
-   - [1.5 FSM del dispositivo BLE](#fsm-del-dispositivo-ble)
-   - [1.6 FSM del LED azul](#fsm-del-led-azul)
-   - [1.7 FSM del LED blanco](#fsm-del-led-blanco)
-   - [1.8 FSM del LED rojo](#fsm-del-led-rojo)
-   - [1.9 FSM del LED amarillo](#fsm-del-led-amarillo)
-- [2 Diseño del Firmware](#diseño-del-firmware)
-   - [2.1 Diagramas de Secuencia](#diagramas-de-secuencia)
+- [Resumen](#resumen)
+- [1 Lógica de Control (FSM)](#1-lógica-de-control-fsm)
+   - [1.1 FSM del sistema (Sistema Global](#11-fsm-del-sistema-global-sistema-global)
+   - [1.2 FSM del botón de pánico](#12-fsm-del-botón-de-pánico)
+   - [1.3 FSM del sensor LDR](#13-fsm-del-sensor-ldr)
+   - [1.4 FSM del dispositivo GSM (sim800l)](#14-fsm-del-dispositivo-gsm)
+   - [1.5 FSM del dispositivo BLE](#15-fsm-del-dispositivo-ble)
+   - [1.6 FSM del LED azul](#16-fsm-del-led-azul)
+   - [1.7 FSM del LED blanco](#17-fsm-del-led-blanco)
+   - [1.8 FSM del LED rojo](#18-fsm-del-led-rojo)
+   - [1.9 FSM del LED amarillo](#19-fsm-del-led-amarillo)
+- [2 Diseño del Firmware](#2-diseño-del-firmware)
+   - [2.1 Diagramas de Secuencia](#21-diagramas-de-secuencia)
 
 
 ---
