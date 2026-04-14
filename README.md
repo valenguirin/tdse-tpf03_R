@@ -39,13 +39,13 @@
   <em>Este trabajo fue realizado en la Ciudad Autónoma de Buenos Aires, entre diciembre de 2025 y marzo de 2026.</em>
 </p>
 
-# RESUMEN
+# Resumen
 En el presente trabajo se diseñó e implementó una alarma vecinal. Se pretendía solucionar la problemática de inseguridad en barrios comprometidos de la Ciudad de Buenos Aires o sus alrededores.
 Mediante un módulo GSM y un botón de pánico se logró que los usuarios puedan hacer sonar una alarma sonora y con luz estroboscópica para notificar a la policía y a la central inmediatamente. Para su mantenimiento, un vecino encargado puede conectarse a través del módulo BLE con doble factor de autenticación.
 La importancia de este trabajo radica en la consolidación de lo aprendido en la materia en cuestión en un trabajo integral de este calibre, además de solucionar potencial y parcialmente el problema de la inseguridad ya mencionado. El actual trabajo es una buena representación de lo aprendido durante la cursada del Taller de Sistemas Embebidos ya que involucra el manejo de la placa STM para comunicar módulos entre sí, vinculando así la implementación de un código con la interconexión de los distintos elementos que componen al sistema.
 En esta Memoria se encontrará la motivación del proyecto, diseños de partes y la propuesta de posibles mejoras a implementar.
 
-# ABSTRACT
+# Abstract
 This paper describes the design and implementation of a neighborhood alarm system aimed at addressing security concerns in high-risk areas of the City of Buenos Aires. By utilizing a GSM module and a panic button, users can trigger an audible alarm and a strobe light to notify both the neighborhood and a central station. For maintenance purposes, technicians can connect via a BLE (Bluetooth Low Energy) module using their personal credentials.
 The significance of this project lies in the consolidation of the knowledge acquired throughout the course into a comprehensive technical application, while offering a potential solution to the aforementioned security issues. This project serves as a robust representation of the learning outcomes from the Embedded Systems course, as it involves programming an STM board to manage inter-module communication, effectively linking software implementation with the interconnection of diverse hardware components.
 This report details the project’s motivation, component designs, and proposes future enhancements.
@@ -53,7 +53,7 @@ This report details the project’s motivation, component designs, and proposes 
 # Agradecimientos
 Agradecemos, como grupo, al Ingeniero Juan Manuel Cruz por el tiempo dedicado a ayudarnos con el desarrollo del proyecto en tiempo real, ya sea desde responder consultas en cualquier momento a personalmente intervenir en las complicaciones tan específicas que fueron surgiendo en todo momento.
 También, al Dr. Ingeniero Ariel Lutenberg, por su impecable predisposición en todo momento para solucionarnos cualquier consulta referida a cualquier cuestión por más técnica y específica que sea, y por estar atento a hacernos el proceso de generar el proyecto final mucho más ameno de lo que podría haber sido.
-A ambos les agradecemos por la motivación genuina por los sistemas embebidos que han  generado en nosotros como estudiantes de Ingeniería Electrónica, haciendo que un proyecto con tiempos de entrega determinados y un examen con su intrínseca burocracia detrás, se vuelva algo placentero de transitar.
+A ambos les agradecemos por la motivación genuina por los sistemas embebidos que han generado en nosotros como estudiantes de Ingeniería Electrónica, haciendo que un proyecto con tiempos de entrega determinados y un examen con su intrínseca burocracia detrás, se vuelva algo placentero de transitar.
 
 # Índice general
 - [Agradecimientos](#agradecimientos)	
@@ -113,7 +113,7 @@ A ambos les agradecemos por la motivación genuina por los sistemas embebidos qu
 | Revisión | Cambios realizados | Fecha |
 | --- | --- | --- |
 | 1.0 |Creación del documento | 24/02/2026 |
-| 1.1 | Agregado de capítulos 1 y 2 |  24/02/2026 |
+| 1.1 | Agregado de capítulos 1 y 2 | 24/02/2026 |
 | 1.2 | Agregado parcial de capítulo 3 | 25/02/2026 |
 | 1.3 | Capítulo 3 completo y parcialmente el capítulo 4 | 26/02/2026|
 | 1.4 | Terminado el documento | 27/02/2026 |
@@ -132,18 +132,18 @@ Según estadísticas de la página de la Ciudad de Buenos Aires, las comunas en 
   <em>Figura 1.1: Mapa del delito por comuna. Colores claros indican menos delito, oscuros indican alto.</em>
 </p>
 
-Nuestro proyecto fue pensado para instalarse en las villas, en donde la comunidad barrial pueda unirse y organizarse. La idea fue crear un dispositivo que cualquier vecino pueda alertar a todo el barrio, aprovechando que una sola persona puede hacer que todos reaccionen.
+Nuestro proyecto fue pensado para instalarse en las villas, en donde la comunidad barrial pueda unirse y organizarse. La idea fue crear un dispositivo con el que cualquier vecino pueda alertar a todo el barrio, aprovechando que una sola persona puede hacer que todos reaccionen.
 El hecho de que sea un producto aplicado a este tipo de zonas, viene también de la mano con el personal policial disponible para tanta área. Al no tener la ciudad el presupuesto para poner mayor cantidad de personal de seguridad en cada esquina de las villas, la única opción viable es que los habitantes se cuiden entre sí, y es por eso que nuestra alarma vecinal fue diseñada para combatir los hechos delictivos aislados por el bajo control policial, haciendo de la red de vecinos una red segura y menos atractiva para quienes delinquen.
 El hecho de haber elegido las villas como mercado fue producto de reconocer que son las zonas de la ciudad con menor seguridad disponible y de entender que las zonas más urbanizadas de la ciudad son mucho más seguras y ya hay soluciones mucho menos sofisticadas que cumplen perfectamente la función de cuidar a los vecinos.
 ## 1.2 Solución a implementar
 La solución al problema de la inseguridad en las villas no se soluciona exclusivamente con una alarma vecinal, pero sí se puede reducir considerablemente la costumbre delictiva que está presente y en crecimiento en esas partes de la ciudad.
 Nuestro producto fue pensado y diseñado para ahuyentar y alertar. Posee un botón de pánico accesible para cualquier persona que esté pasando por una situación de inseguridad o para cualquier testigo de alguna. La funcionalidad que fue añadida pensando en los posibles escenarios de delincuencia fue la posibilidad de que algún vecino realice una llamada al número asociado a la alarma y active la alarma remotamente. Esto fue implementado debido a que muchas situaciones delictivas se ven, pero no se enfrentan por miedo a involucrarse. De esta manera, creemos que haber implementado la funcionalidad mencionada, hará que muchas acciones delictivas puedan frenar antes de tiempo o mitigar sus efectos.
-Además, la alarma vecinal posee una luz estroboscópica y alarma sonora. Ambas son para alertar al vecindario y ahuyentar al delincuente. La luz únicamente se prende si hay muy baja iluminación, ya que sino sería un gasto de recursos sin sentido. Cabe destacar que al tener como prioridad que se cree una red segura entre vecinos, los usuarios habilitados para llamar son exclusivamente miembros de la calle donde está instalada esta y deben ser incluidos en una whitelist que genera la central. Al momento de la instalación, el técnico podrá conectarse vía Bluetooth a la alarma con su usuario y contraseña y cargar esa lista. Privilegios de administrador serán otorgados a miembros específicos de cada comunidad para poder agregar o quitar miembros de esa lista, para así afianzar todavía más la confianza entre la red del barrio.
+Además, la alarma vecinal posee una luz estroboscópica y alarma sonora. Ambas son para alertar al vecindario y ahuyentar al delincuente. La luz únicamente se prende si hay muy baja iluminación, ya que, si no, sería un gasto de recursos sin sentido. Cabe destacar que al tener como prioridad que se cree una red segura entre vecinos, los usuarios habilitados para llamar son exclusivamente miembros de la calle donde está instalada esta y deben ser incluidos en una whitelist que genera la central. Al momento de la instalación, el técnico podrá conectarse vía Bluetooth a la alarma con su usuario y contraseña y cargar esa lista. Privilegios de administrador serán otorgados a miembros específicos de cada comunidad para poder agregar o quitar miembros de esa lista, para así afianzar todavía más la confianza entre la red del barrio.
 ## 1.3 Análisis de sistemas similares al desarrollado
 Existen empresas como Global Alarmas [2], Hexacom [3], Alerta Vecinal [4], Safecity [5] y Verisure [6] que ofrecen a grandes rasgos lo mismo que nuestra solución. Habiendo más de un competidor, fue importante para nosotros pensar en alguna característica distintiva que destaque entre las demás. El carácter de red vecinal profunda que promete nuestro producto es, en parte, lo que hace que nuestra alarma vecinal no solo sea una herramienta, sino un símbolo de seguridad comunitaria. 
-Entre algunas de las funcionalidades que se ofrecen por estas empresas en sus productos se encuentran: sirena de luz, alerta sonora, botonera y panel de control, rastreo vehicular, emisores de humo denso, whitelist, aplicación móvil y control remoto, entre otras.
+Entre algunas de las funcionalidades que se ofrecen por estas empresas en sus productos se encuentran: baliza luminosa, alerta sonora, botonera y panel de control, rastreo vehicular, emisores de humo denso, whitelist, aplicación móvil y control remoto, entre otras.
 Cabe mencionar que solo una de estas empresas, Alerta Vecinal, está dedicada exclusivamente al desarrollo de alarmas para comunidades y no para domicilios particulares.
-Si bien ya existen alarmas con listas tipo whitelist, nuestro concepto de whitelist descentralizada (que usuarios dentro de la red puedan operar con ella) hace que el sentimiento de comunidad sea más fuerte si se elige nuestra propuesta, además de que la construcción y mantenimiento de la alarma es muy baja. Se suma el hecho de que se puede reportar un acto ilícito de manera silenciosa y anónima mediante una llamada telefónica, solo la central sabrá qué número de la whitelist activó la alarma. Muchas alarmas ofrecen protección exclusivamente a uno mismo, mientras que nosotros brindamos la posibilidad de cuidarnos entre todos.
+Si bien ya existen alarmas con listas tipo whitelist, nuestro concepto de whitelist descentralizada (que usuarios dentro de la red puedan operar con ella) hace que el sentimiento de comunidad sea más fuerte si se elige nuestra propuesta, además de que el costo de la construcción y mantenimiento de la alarma es muy baja. Se suma el hecho de que se puede reportar un acto ilícito de manera silenciosa y anónima mediante una llamada telefónica, solo la central sabrá qué número de la whitelist activó la alarma. Muchas alarmas ofrecen protección exclusivamente a uno mismo, mientras que nosotros brindamos la posibilidad de cuidarnos entre todos.
 Por otro lado, el uso de la interfaz Bluetooth para el vecino encargado es un enfoque moderno y que facilita la instalación y mantenimiento de alarmas en puntos estratégicos y peligrosos, ya que a veces puede ser complicado operar en ciertos puntos.
 Por último, el sensor de luz no es un detalle menor, ya que con esa simple incorporación el barrio consume electricidad para la iluminación únicamente cuando es necesario, y eso se ve reflejado en ahorros de energía eléctrica considerables.
 
@@ -219,37 +219,37 @@ En las tablas 2.2, 2.3 y 2.4 se presentan tres casos de uso para ejemplificar un
 </p>
 
 ### 2.2.1 Diagramas de secuencia del sistema
-Previo a empezar a programar el código del sistema, se decidio modelar diagramas de secuancia para cada caso de uso. Esto ayudará a comprender mejor el funcionamiento del sistema planteado en la sección 2.2 y así poder implementar el código de cada sensor y actuador con mayor facilidad.
+Previo a empezar a programar el código del sistema, se decidió modelar diagramas de secuancia para cada caso de uso. Esto ayudará a comprender mejor el funcionamiento del sistema planteado en la sección 2.2 y así poder implementar el código de cada sensor y actuador con mayor facilidad.
 
-En la Figura 2.1 se observa el diagrama de secuancias para el caso de activación de la alarma por llamada.
+En la Figura 2.1 se observa el diagrama de secuencias para el caso de activación de la alarma por llamada.
 <p align="center">
   <img src="./img/gsm_mode.png" alt="Modo gsm" width="600">
 </p>
 <p align="center">
-  <em>Figura 2.1: Diagrama de secuancias para el caso de activación por red GSM.</em>
+  <em>Figura 2.1: Diagrama de secuencias para el caso de activación por red GSM.</em>
 </p>
 
-En la Figura 2.2 se observa el diagrama de secuancias para el caso de activación de la alarma por botón de pánico.
+En la Figura 2.2 se observa el diagrama de secuencias para el caso de activación de la alarma por botón de pánico.
 
 <p align="center">
   <img src="./img/Panic_button.png" alt="Modo panic button" width="600">
 </p>
 <p align="center">
-  <em>Figura 2.2: Diagrama de secuancias para el caso de activación por botón de pánico.</em>
+  <em>Figura 2.2: Diagrama de secuencias para el caso de activación por botón de pánico.</em>
 </p>
 
-En la Figura 2.3 se observa el diagrama de secuancias para el caso de conexón de personal autorizado al sistema mediante Bluetooth.
+En la Figura 2.3 se observa el diagrama de secuencias para el caso de conexión de personal autorizado al sistema mediante Bluetooth.
 
 <p align="center">
   <img src="./img/Modo_ble.png" alt="Modo admin" width="600">
 </p>
 <p align="center">
-  <em>Figura 2.3: Diagrama de secuancias para el caso de conexión de personal autorizado.</em>
+  <em>Figura 2.3: Diagrama de secuencias para el caso de conexión de personal autorizado.</em>
 </p>
 
 ## 2.3 Descripción módulos del sistema
 ### 2.3.1 Alimentación
-Para la alimentación de todo el sistema se usó un cargador de celular de la marca Motorola®️, un módulo de carga rápida PD/QC USB C y un módulo regulador de tensión LM2596. Particularmente se optó por un cargador con la opción de "carga rápida" para poder entregar tensión y corrientes específicas y para mayor portabilidad física de la placa. La tensión de entrada elegida fue de 9 V, ya que la diferencia mínima requerida entre la entrada del LM2596 y su salida debe ser de 1,5 V, y la salida fue regulada a 4 V. En cuanto a la corriente, el cargador puede entregar hasta 3 A, así que fue más que suficiente para suplir el máximo consumo del módulo GSM (2 A). Para poder obtener esta tensión y corriente fue necesaria la adquisición del módulo de carga rápida mencionado, que funciona emulando al módulo interno de un celular moderno solicitando el poder para una carga específicamente rápida que requiera esos valores. Éste último puede apreciarse en la Figura 2.4. Por otro lado, en la Figura 2.5. se observa el módulo LM2596, que fue el encargado de recibir los 9 V del módulo de carga rápida y convertirlos a 4 V, tensión utilizada para alimentar directamente al módulo GSM, BLE y LDR.
+Para la alimentación de todo el sistema se usó un cargador de celular de la marca Motorola®️, un módulo de carga rápida PD/QC USB C y un módulo regulador de tensión LM2596. Particularmente se optó por un cargador con la opción de "carga rápida" para poder entregar tensión y corrientes específicas y para mayor portabilidad física de la placa. La tensión de entrada elegida fue de 9 V, ya que la diferencia mínima requerida entre la entrada del LM2596 y su salida debe ser de 1,5 V, y la salida fue regulada a 4 V. En cuanto a la corriente, el cargador puede entregar hasta 3 A, así que fue más que suficiente para suplir el máximo consumo del módulo GSM (2 A). Para poder obtener esta tensión y corriente fue necesaria la adquisición del módulo de carga rápida mencionado, que funciona emulando al módulo interno de un celular moderno solicitando el poder para una carga específicamente rápida que requiera esos valores. Este último puede apreciarse en la Figura 2.4. Por otro lado, en la Figura 2.5 se observa el módulo LM2596, que fue el encargado de recibir los 9 V del módulo de carga rápida y convertirlos a 4 V, tensión utilizada para alimentar directamente al módulo GSM, BLE y LDR.
 
 <p align="center">
   <img src="./img/carga_rapida.png" alt="módulo_de_carga_rápida_PD_QC_USB_C" width="350">
@@ -266,7 +266,7 @@ Para la alimentación de todo el sistema se usó un cargador de celular de la ma
 </p>
 
 ### 2.3.2 Microcontrolador
-Como controlador principal del sistema se utilizó la placa NUCLEO-F103B. Cuenta con los pines, cantidad de memoria y periféricos de sobra para lo que fue el desarrollo del proyecto. La elección de esta placa fue basada en lo mencionado recientemente.
+Como controlador principal del sistema se utilizó la placa NUCLEO-F103RB. Cuenta con los pines, cantidad de memoria y periféricos de sobra para lo que fue el desarrollo del proyecto. La elección de esta placa fue basada en lo mencionado recientemente.
 
 ### 2.3.3 Módulo GSM
 Para recibir llamadas telefónicas de los usuarios (para su activación) y enviar mensajes de texto conteniendo información sobre la alerta, se utilizó un Módulo GSM/GPRS (SIM800L). Consta de un slot para colocar un chip de celular y pines para las siguientes conexiones:
@@ -275,7 +275,7 @@ TXD/RXD: Son las señales que se utilizan para la comunicación serial mediante 
 Se tuvo que hacer un divisor resistivo entre el pin de RX de esta placa y el pin TX de la Núcleo, ya que el nivel alto lógico del módulo gsm es 2,8 V y de la placa Núcleo es 3,3 V.
 NET: es el punto de conexión para la antena GSM. Se usó una de 6 dBi para que la señal se pueda recepcionar sin problemas.
 El funcionamiento de este módulo consta de conectarse a la red 2G para actuar como si fuera un celular (desde el punto de vista de la comunicación). Recibe llamadas que corta luego de un RING si el usuario que llama está en la whitelist, entonces se activa la alarma. También envía mensajes SMS para notificar a la policía y central . Su elección recae en la simpleza del funcionamiento, ya que la prioridad fue atenernos a las funcionalidades pensadas para el trabajo y el módulo en cuestión se ajustaba de manera perfecta para cumplir con estos requisitos.
-Se tiene en cuenta que la red 2G está siendo apagada lentamente pero en ese caso se podrá implementar esta alarma usando el módulo  SIM800L que se observa en la Figura 2.6 . Aunque, mientras eso no ocurra, por costo y utilidad esta opción es la mejor.
+Se tiene en cuenta que la red 2G está siendo apagada lentamente pero en ese caso se podrá implementar esta alarma usando el módulo SIM800L que se observa en la Figura 2.6 . Aunque, mientras eso no ocurra, por costo y utilidad esta opción es la mejor.
 
 <p align="center">
   <img src="./img/gsm.png" alt="modulo_gsm" width="350">
@@ -299,7 +299,7 @@ La otra era la memoria del STM32 y este microcontrolador no tiene EEPROM real. S
 
 ### 2.3.5 Módulo Bluetooth
 Para la conexión del personal autorizado, ya sea un técnico de la empresa para instalar la alarma o un vecino de alto rango con acceso a la alta y baja de usuarios, se utilizó un Módulo HM-10 (módulo Bluetooth). Sus pines son los siguientes:
-VCC/GND: se alimenta, por lo general, con 3,3 V a  6 V.
+VCC/GND: se alimenta, por lo general, con 3,3 V a 6 V.
 TXD/RXD: por los que se da la comunicación serial. El TX del módulo en cuestión va al RX de la placa NUCLEO-F103RB y el RX del módulo, al TX de la placa.
 El HM-10 trabaja respetando el estándar BLE (Bluetooth Low Energy), lo que permite gozar del bajo consumo de energía. Recibe comandos AT para el ingreso como administrador y comandos para la alta y baja de números telefónicos. Envía confirmaciones de acceso, estado de la memoria y logs de quién ingresó al sistema mediante ese módulo. El módulo HM-10 observado en la Figura 2.8 fue elegido por su característica de bajo consumo principalmente, y también por la retroalimentación que este módulo proporciona al interactuar con él.
 
@@ -325,7 +325,7 @@ El funcionamiento se basa en que la resistencia del sensor disminuye a medida qu
 </p>
 
 ### 2.3.7 Indicadores
-Para confirmar que las conexiones estuvieran correctas a medida que se desarrollaba el proyecto en su momento, fueron utilizados LEDs. Éstos sirvieron para verificar el correcto funcionamiento de cada parte y actualmente representan: luz estroboscópica, sirena sonora, armado/desarmado de alarma, alta/baja de números y acceso mediante Bluetooth confirmado.
+Para confirmar que las conexiones estuvieran correctas a medida que se desarrollaba el proyecto en su momento, fueron utilizados LEDs. Éstos sirvieron para verificar el correcto funcionamiento de cada parte y actualmente representan: luz estroboscópica, sirena, armado/desarmado de alarma, alta/baja de números y acceso mediante Bluetooth confirmado.
 
 ### 2.3.8 Aplicación de celular
 Se hizo uso de una aplicación celular llamada “Serial Bluetooth Terminal” para validar el buen funcionamiento del módulo HM-10 y evaluar el estado y avance del código implementado. Fue exclusivamente necesaria (y lo es hasta el día de hoy) para poder interactuar con el módulo en cuestión, ya que permitió enviar comandos para acceder al módulo, dar de alta/baja números y salir del módulo.
@@ -354,7 +354,7 @@ Como ha sido mencionado previamente en el apartado 2.3.9, una placa experimental
   <em>Figura 3.1: Vista general del producto.</em>
 </p>
 
-En la Figura 3.2 se observa la vista lateral de la placa. Se incluye cuatro separadores de plástico para placas con el fin de lograr un mejor soporte.
+En la Figura 3.2 se observa la vista lateral de la placa. Se incluyen cuatro separadores de plástico para placas con el fin de lograr un mejor soporte.
 
 <p align="center">
   <img src="./img/placa_lateral.jpeg" alt="Placa lateral" width="600">
@@ -395,7 +395,7 @@ Se presenta en la Tabla 3.1 la conexión entre pines del módulo GSM y la placa 
   <em>Tabla 3.1: interconexión de pines del módulo GSM.</em>
 </p>
 
-El módulo GSM es el encargado de gestionar las llamadas de auxilio para la activación de alarma y los mensajes de texto enviados a la policía, central y usuarios admitidos. Este módulo funciona con tensión entre 3,8 V y 4,4 V. Posee una ranura para insertar un chip de alguna compañía telefónica, característica que hace que exista un número de teléfono al cual llamar para que el módulo interactúe con la alarma. La implementación del módulo GSM en este trabajo se basa en que cuando un usuario contacta a la alarma, su llamada llega al módulo como la interrupción más importante, esto se valida mediante el pin RING, corta la llamada, se almacena el número telefónico en cuestión. Acto seguido, ese número es enviado por el puerto serie al microcontrolador de la placa NUCLEO, en donde se compara con los números pertenecientes a la whitelist previamente confeccionada. En caso de ser parte de esa lista, NUCLEO comunica al módulo GSM los números a quienes enviar los mensajes de alerta (policía y central), todo a través de comunicación serial. En caso de no pertenecer, el sistema solo corta la llamada para no interrumpir su funcionamiento.
+El módulo GSM es el encargado de gestionar las llamadas de auxilio para la activación de alarma y los mensajes de texto enviados a la policía, central y usuarios admitidos. Este módulo funciona con tensión entre 3,8 V y 4,4 V. Posee una ranura para insertar un chip de alguna compañía telefónica, característica que hace que exista un número de teléfono al cual llamar para que el módulo interactúe con la alarma. La implementación del módulo GSM en este trabajo se basa en que cuando un usuario contacta a la alarma, su llamada llega al módulo como la interrupción más importante, esto se valida mediante el pin RING, corta la llamada, se almacena el número telefónico en cuestión. Acto seguido, ese número es enviado por el puerto serie al microcontrolador de la placa NUCLEO, en donde se compara con los números pertenecientes a la whitelist previamente confeccionada. En caso de ser parte de esa lista, NUCLEO comunica al módulo GSM los números a los cuales enviar los mensajes de alerta (policía y central), todo a través de comunicación serial. En caso de no pertenecer, el sistema solo corta la llamada para no interrumpir su funcionamiento.
 #### 3.1.1.1 Problemas con el módulo GSM
 Se comprendió el funcionamiento del módulo casi en su totalidad, pero hubo tres grandes problemas a los cuales nos enfrentamos al momento de desarrollar su rol en el trabajo:
 Saldo del chip prepago: al ejecutar pruebas al momento del desarrollo nos encontramos con la realidad económica que podría suponer un producto así. Cada prueba costó aproximadamente 0,35 USD y al ser un chip prepago, el saldo terminó de consumirse sin previo aviso (dejando de enviar mensajes de texto, pero sí recibiendo llamadas) e implicó un problema de mayor porte hasta finalmente poder localizar la fuente del mal funcionamiento temporal. En un producto final sería un chip con plan de mensajes ilimitado a cualquier compañía, que hoy en día el plan más básico lo posee.
@@ -469,7 +469,7 @@ En la Tabla 3.4 se detallan las interconexiones de pines para la memoria EEPROM.
 	
 | NUCLEO-F103RB | MEMORIA EEPROM |
 | :---- | :---- |
-|3.3 V|VCC|
+|3,3 V|VCC|
 |GND|GND|
 |PB6|SCL|
 |PB7|SDA|
@@ -488,7 +488,7 @@ Para nuestra fortuna, no tuvimos problemas con este componente del trabajo, más
 Si bien la electrónica para este trabajo fue prioridad y una cuestión a la cual hubo que prestar sumo detalle, nada hubiera funcionado sin un código que genere exactamente la lógica requerida. A continuación se presentan fragmentos de código que consideramos importantes para el desarrollo de este trabajo.
 ### 3.2.1 Main
 Esta función, que es la principal del sistema, se encarga de hacer funcionar la alarma en su totalidad. No conoce las lógicas de los periféricos, pero sabe a qué funciones invocar para que éstos se activen. El código se puede separar en dos grandes partes: previa y posterior al while. La gran distinción entre estas secciones es que el código previo se ejecuta una sola vez al prender la alarma, mientras que lo que está dentro del while (Super-loop) se ejecuta muchas veces por segundo siempre y cuando la alarma tenga energía. 
-En la Figura 3.4 se observan los llamados a funciones para inicializar los sensores, actuadores, memoria y sistema. Seguidamente, el código entra en un bucle while  como se observa en la Figura 3.5 que realiza constantemente los llamados a funciones de actualización ‘update’ para cada módulo.
+En la Figura 3.4 se observan los llamados a funciones para inicializar los sensores, actuadores, memoria y sistema. Seguidamente, el código entra en un bucle while como se observa en la Figura 3.5 que realiza constantemente los llamados a funciones de actualización ‘update’ para cada módulo.
 
 <p align="center">
   <em>Figura 3.4: código del main con funciones de inicialización.</em>
@@ -496,7 +496,7 @@ En la Figura 3.4 se observan los llamados a funciones para inicializar los senso
 
 
 <p align="center">
-  <em>Figura 3.5: bucle while  del main.c.</em>
+  <em>Figura 3.5: bucle while del main.c.</em>
 </p>
 
 ### 3.2.2 Botón de pánico
@@ -527,7 +527,7 @@ El código de este módulo puede desglosarse en 3 categorías o capas.
 Chequeo de conexión: si el sistema detecta algo raro, con cmd_ble_force_lock puede cerrar forzadamente la sesión por protección. También, se lee un pin físico del módulo HM-10 (BLE_STATE_Pin). Si el técnico o algún usuario admitido apaga su Bluetooth o se aleja demasiado, el sistema detecta esa caída de señal y bloquea la sesión por seguridad. Por último, si el sistema está ocupado mandando un SMS (sym_ocupado_sms), bloquea los comandos por una cuestión de recursos del microcontrolador. La única orden que se permite es “SILENCE”.
 Autenticación: en el estado ST_AUTH_LOCKED el sistema está cerrado. Se “despierta” solo si recibe la palabra “ADMIN” y queda a la espera de otra. Cualquier palabra que no sea “ADMIN” en primer lugar, dispara un parpadeo de led. Luego, pasa al estado ST_AUTH_WAITING_PASS en el que espera la contraseña. Solo con la palabra “FIUBA” se otorga acceso y enciende fijamente un led en cuestión. Si la clave no es la correcta, se reinicia el proceso en cuestión.
 Comandos: una vez ingresado correctamente con los datos mencionados previamente, se puede gestionar la whitelist con comandos “ADD” y “DEL”, los cuales agregan o eliminan respectivamente a los números que se escriban posteriormente a los comandos. Agregar o quitar números modifica la memoria EEPROM. El comando “OUT” permite cerrar la sesión.
-Cabe destacar que, gracias a las funciones String_Trim_Right  y  String_To_Upper no importa si el usuario escribe con un espacio al final o en mayúsculas o minúsculas, siempre que la palabra sea correcta, se ingresará.
+Cabe destacar que, gracias a las funciones String_Trim_Right y String_To_Upper no importa si el usuario escribe con un espacio al final o en mayúsculas o minúsculas, siempre que la palabra sea correcta, se ingresará.
 En la Figura 3.8 y en la Figura 3.9 se puede apreciar el código.
 
 <p align="center">
@@ -560,7 +560,7 @@ La gestión de los mensajes SMS se expone en código en la Figura 3.12, 3.13 y 3
 - SMS_IDLE: Cuando el sistema está en reposo, el código se fija si el puntero de la cola se movió (sms_tail != sms_head). En caso de haber un mensaje esperando, se activa. El retardo de 4 segundos es para asegurar que la red celular esté estable previo al arranque. Se envía el comando “AT+CMGS=”...”” con el número del usuario que se extrae de la cola. Se inicializan las flags y pasa al estado SMS_SEND_CMD.
 - SMS_SEND_CMD: Se envían los datos del modem al sistema de forma asincrónica para no pausar la ejecución del código. Luego de llamar a la función pasa al estado SMS_WAIT_TX_CMD.
 - SMS_WAIT_TX_CMD: Espera a que HAL_UART_Transmit_IT() termine de enviar lo solicitado para pasar al estado SMS_WAIT_PROMPT.
-- SMS_WAIT_PROMPT: El módulo GSM debe responder que está listo para recibir el texto, así que la NUCLEO se queda esperando que el módulo envíe el símbolo ‘>’ (flag_gms_prompt == 1). Una vez enviado el símbolo, se procede a copiar el mensaje al buffer (si la longitud del mensaje supera los cien caracteres, solo se copiarán los primeros cien) y se agrega el caracter “0x1A” que es el comando CTRL+Z para indicarle al módulo que envíe el mensaje y pasar al estado SMS_SEND_MSG. Si el tiempo de espera para enviar el símbolo ‘>’  supera los tres segundos, la tarea se descarta y regresa a SMS_IDLE.
+- SMS_WAIT_PROMPT: El módulo GSM debe responder que está listo para recibir el texto, así que la NUCLEO se queda esperando que el módulo envíe el símbolo ‘>’ (flag_gms_prompt == 1). Una vez enviado el símbolo, se procede a copiar el mensaje al buffer (si la longitud del mensaje supera los cien caracteres, solo se copiarán los primeros cien) y se agrega el caracter “0x1A” que es el comando CTRL+Z para indicarle al módulo que envíe el mensaje y pasar al estado SMS_SEND_MSG. Si el tiempo de espera para enviar el símbolo ‘>’ supera los tres segundos, la tarea se descarta y regresa a SMS_IDLE.
 - SMS_SEND_MSG: Se envía el mensaje al sistema de forma asincrónica para no pausar la ejecución del código. Luego de llamar a la función pasa al estado SMS_WAIT_TX_MSG.
 - SMS_WAIT_TX_MSG: Espera a que HAL_UART_Transmit_IT() termine de enviar lo solicitado para pasar al estado SMS_WAIT_OK.
 - SMS_WAIT_OK: Se espera el OK del módulo o un mensaje de error. Si no hubo problemas, se descarta ese mensaje de la fila (sms_tail++) y vuelve a SMS_IDLE para cerrar el ciclo. En caso de tildarse, se esperan 12 segundos y si no responde en ese tiempo, se aborta la tarea para no quedarse bloqueado.
@@ -652,7 +652,7 @@ El presente apartado detalla las métricas de rendimiento y el perfil de consumo
 Las pruebas de consumo de corriente sobre la placa NUCLEO-F103RB, realizadas con el módulo Bluetooth (BLE) conectado al STM a 5 V permanente durante todas las mediciones, arrojaron los siguientes resultados:
 
 - Consumo sobre la línea de 5 V (Sistema general):
-  - Estado de reposo:  22,8 mA
+  - Estado de reposo: 22,8 mA
   - Estado activo: 21,7 mA
   - Evidencia adjunta en la Figura 4.3 y la Figura 4.4:
 
@@ -668,7 +668,7 @@ Las pruebas de consumo de corriente sobre la placa NUCLEO-F103RB, realizadas con
 - Consumo sobre la línea de 3,3 V (Microcontrolador STM32):
   - Estado de reposo: 16,7 mA
   - Estado activo: 15,5 mA
-  - Evidencia adjunta en la Figura 4.5 y la Figura 4.5:
+  - Evidencia adjunta en la Figura 4.5 y la Figura 4.6:
  
 <p align="center">
   <em>Figura 4.5: Medición de la placa a 3,3 V en estado activo.</em>
@@ -681,7 +681,7 @@ Las pruebas de consumo de corriente sobre la placa NUCLEO-F103RB, realizadas con
 
 #### 4.3.1.1 Análisis del módulo GSM (SIM800L)
 Como se carece de un osciloscopio se omite la medición de los picos transitorios de consumo del módulo GSM SIM800L.
-Para un registro preciso de la energía de este componente, el procedimiento teórico sería la instalación de una resistencia  de bajo valor (por ejemplo, 0,1 Ω) en serie con la alimentación positiva (VCC) del módulo. Un osciloscopio, con sus sondas en paralelo a la resistencia, se debería capturar la caída de tensión máxima originada por la ráfaga de transmisión de un SMS o llamada entrante. De esta forma el cálculo de la corriente pico real surge de la división de este voltaje máximo por el valor resistivo, por la Ley de Ohm.
+Para un registro preciso de la energía de este componente, el procedimiento teórico sería la instalación de una resistencia de bajo valor (por ejemplo, 0,1 Ω) en serie con la alimentación positiva (VCC) del módulo. Con osciloscopio, cuyas sondas se coloquen en paralelo a la resistencia, se debería capturar la caída de tensión máxima originada por la ráfaga de transmisión de un SMS o llamada entrante. De esta forma el cálculo de la corriente pico real surge de la división de este voltaje máximo por el valor resistivo, por la Ley de Ohm.
 
 
 ### 4.3.2 Medición y análisis de tiempos de ejecución de cada tarea (WCET)
@@ -779,7 +779,7 @@ Considerando todo lo realizado hasta el momento, proponemos algunas posibles mej
 
 # CAPÍTULO 6 
 # Uso de herramientas de la inteligencia artificial.
-Para la elaboración de este trabajo en su conjunto fue utilizada la inteligencia artificial Gemini de manera responsable, con el único fin de reducir los tiempos de producción y de eficientizar el aprendizaje sobre los detalles desconocidos. Es importante mencionar que este uso no comprometió bajo ningún concepto nuestro entendimiento sobre el trabajo, sino que nos permitió comprender mejor y más profundamente cuestiones que hubieran sido más complicadas de aprender.
+Para la elaboración de este trabajo en su conjunto fue utilizada la inteligencia artificial Gemini de manera responsable, con el único fin de reducir los tiempos de producción y de optimizar el aprendizaje sobre los detalles desconocidos. Es importante mencionar que este uso no comprometió bajo ningún concepto nuestro entendimiento sobre el trabajo, sino que nos permitió comprender mejor y más profundamente cuestiones que hubieran sido más complicadas de aprender.
 
 ## 6.1 Uso individual
 - Yerson Monzón: utilización de la inteligencia artificial para conocer los comandos AT necesarios para lo que se quería implementar en el código, asistencia con aplicaciones como Hercules SETUP utility para la comunicación con el módulo GSM, la generación de código a partir del .ioc, al hacer las integraciones con módulos que se desarrollaron por separado y los problemas que surgieron durante dicho procedimiento. También para el análisis y empezar a conocer el funcionamiento específico y detallado de ciertos componentes.
