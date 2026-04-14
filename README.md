@@ -89,6 +89,8 @@ A ambos les agradecemos por la motivación genuina por los sistemas embebidos qu
     - [3.2.4 Módulo Bluetooth](#324-módulo-bluetooth)
     - [3.2.5 Módulo GSM](#325-módulo-gsm)
     - [3.2.6 Gestión de mensajes SMS](#326-gestión-de-mensajes-sms)
+  - [3.3 Statecharts]
+  - [3.4 Diagramas de secuencias] 
 - [Ensayos y resultados](#ensayos-y-resultados)
   - [4.1 Desarrollo y pruebas de funcionamiento](#41-desarrollo-y-pruebas-de-funcionamiento)
   - [4.2 Cumplimiento de requisitos](#42-cumplimiento-de-requisitos)
@@ -575,6 +577,63 @@ La gestión de los mensajes SMS se expone en código en la Figura 3.12, 3.13 y 3
 
 <p align="center">
   <em>Figura 3.14: tercera parte del código gestor de mensajes de texto.</em>
+</p>
+
+## 3.3 Statecharts
+
+<p align="center">
+  <img src="./img/actuator_led_blue.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/actuator_led_red.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/actuator_led_yellow.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/actuator_led_white.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/gsm.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/sensor_ldr.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/sensor_panic_button.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/system.png" alt="Placa" width="600">
+</p>
+
+
+## 3.4 Diagramas de secuencias
+
+<p align="center">
+  <img src="./img/BLE_to_SYS.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/SYS_to_BLE.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/gsm_to_system.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/sensor_to_system.png" alt="Placa" width="600">
+</p>
+
+<p align="center">
+  <img src="./img/system_to_gsm.png" alt="Placa" width="600">
 </p>
 
 # CAPÍTULO 4 
