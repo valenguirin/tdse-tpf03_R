@@ -89,8 +89,8 @@ A ambos les agradecemos por la motivación genuina por los sistemas embebidos qu
     - [3.2.4 Módulo Bluetooth](#324-módulo-bluetooth)
     - [3.2.5 Módulo GSM](#325-módulo-gsm)
     - [3.2.6 Gestión de mensajes SMS](#326-gestión-de-mensajes-sms)
-  - [3.3 Statecharts]
-  - [3.4 Diagramas de secuencias] 
+  - [3.3 Statecharts](#33-statecharts)
+  - [3.4 Diagramas de secuencia](34-diagramas-de-secuencia) 
 - [Ensayos y resultados](#ensayos-y-resultados)
   - [4.1 Desarrollo y pruebas de funcionamiento](#41-desarrollo-y-pruebas-de-funcionamiento)
   - [4.2 Cumplimiento de requisitos](#42-cumplimiento-de-requisitos)
